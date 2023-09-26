@@ -6,7 +6,7 @@
 /*   By: gyong-si <gyongsi@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 14:11:08 by gyong-si          #+#    #+#             */
-/*   Updated: 2023/09/26 20:28:06 by gyong-si         ###   ########.fr       */
+/*   Updated: 2023/09/26 22:29:24 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,13 @@ static int	ft_format(va_list args, char format)
 		s = (unsigned int)va_arg(args, int);
 		len += ft_intohex(s, "0123456789ABCDEF");
 	}
+	else if (format == '%')
+	{
+		ft_putchar_fd('%', 1);
+		len++;
+	}
+	else
+		return (-1);
 	return (len);
 }
 
@@ -160,11 +167,13 @@ int	main(void)
 	int	num;
 	char *string;
 	unsigned int num1;
+	char *p;
 
 	singlechar = 'h';
 	string = "ivan";
 	num = 42;
 	num1 = 4212345;
+	p = '%';
 	ft_printf("This is a single char %c\n", singlechar);
 	ft_printf("My name is %s. My char is %c\n", string, singlechar);
 	ft_printf("Address of num: %p\n", (void *)&num);
@@ -172,5 +181,6 @@ int	main(void)
 	ft_printf("Unsigned Int Decimal Base 10 number: %u\n", num1);
 	ft_printf("Print unsigned int number in lowercase hex format: %x\n", num1);
 	ft_printf("Print unsigned int number in uppercase hex format: %X\n", num1);
+	ft_printf("Prints out percentage sign : %%", p);
 	return (0);
 }
