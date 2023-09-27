@@ -6,75 +6,12 @@
 /*   By: gyong-si <gyongsi@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 14:11:08 by gyong-si          #+#    #+#             */
-/*   Updated: 2023/09/27 12:46:20 by gyong-si         ###   ########.fr       */
+/*   Updated: 2023/09/28 00:26:10 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
-
-void ft_putnbr_unsigned(unsigned int n)
-{
-	if (n >= 10)
-		ft_putnbr_unsigned(n / 10);
-	ft_putchar_fd('0' + (n % 10), 1);
-}
-
-static int	ft_numlen(int num)
-{
-	int	len;
-
-	len = 0;
-	while (num != 0)
-	{
-		num /= 10;
-		len++;
-	}
-	return (len);
-}
-
-static int ft_voidtohex(void *p)
-{
-	unsigned long long addr;
-	int	i;
-	int	len;
-	char hex[16];
-
-	len = 0;
-	i = 15;
-	addr = (unsigned long long)p;
-	while (addr > 0)
-	{
-		i--;
-		hex[i] = "0123456789abcdef"[addr % 16];
-		addr /= 16;
-		len++;
-	}
-	ft_putstr_fd("0x", 1);
-	ft_putstr_fd(&hex[i], 1);
-	return (len);
-}
-
-static int	ft_intohex(unsigned int s, char *base)
-{
-	unsigned int	c;
-	int	i;
-	int	len;
-	char	hex[16];
-
-	len = 0;
-	i = 15;
-	c = (unsigned int)s;
-	while (c > 0)
-	{
-		hex[i] = base[c % 16];
-		c /= 16;
-		i--;
-		len++;
-	}
-	ft_putstr_fd(&hex[i + 1], 1);
-	return (len);
-}
 
 static int	ft_format(va_list args, char format)
 {
@@ -82,48 +19,21 @@ static int	ft_format(va_list args, char format)
 
 	len = 0;
 	if (format == 'c')
-	{
-		ft_putchar_fd(va_arg(args, int), 1);
-		len++;
-	}
+		len += ft_int_putchar_fd(va_arg(args, int), 1);
 	else if (format == 's')
-	{
-		char	*s;
-
-		s = va_arg(args, char *);
-		ft_putstr_fd(s, 1);
-		len += ft_strlen(s);
-	}
+		len += ft_int_putstr_fd(va_arg(args, char *), 1);
 	else if (format == 'p')
 		len += ft_voidtohex(va_arg(args, void *));
 	else if (format == 'd' || format == 'i')
-	{
-		int	num;
-
-		num = va_arg(args, int);	
-		ft_putnbr_fd(num, 1);
-		if (num < 0)
-			len += ft_numlen(-num) + 1;
-		else
-			len += ft_numlen(num);
-	} 
+		len += ft_int_putnbr_fd(va_arg(args, int), 1);
 	else if (format == 'u')
-	{
-		int	num;
-
-		num = (unsigned int)va_arg(args, int);
-		ft_putnbr_unsigned((unsigned int)num);
-		len += ft_numlen(num);
-	}
+		len += ft_putnbr_unsigned((unsigned int)va_arg(args, int));
 	else if (format == 'x')
 		len += ft_intohex((unsigned int)va_arg(args, int), "0123456789abcdef");
 	else if (format == 'X')
 		len += ft_intohex((unsigned int)va_arg(args, int), "0123456789ABCDEF");
 	else if (format == '%')
-	{
-		ft_putchar_fd('%', 1);
-		len++;
-	}
+		len += ft_int_putchar_fd('%', 1);
 	else
 		return (-1);
 	return (len);
