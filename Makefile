@@ -7,12 +7,12 @@ CFLAGS      = -Wall -Wextra -Werror
 LIBFT_DIR = libft
 
 # Source files
-SRC_FILES   = ft_int_putchar_fd.c   \
+SRC_FILES   = ft_printf.c			\
+ft_int_putchar_fd.c   				\
 ft_int_putstr_fd.c                  \
 ft_int_putnbr_fd.c                  \
 ft_intohex.c                        \
 ft_numlen.c                         \
-ft_putnbr_unsigned.c                \
 ft_voidtohex.c                      \
 
 # Object files

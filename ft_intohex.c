@@ -6,7 +6,7 @@
 /*   By: gyong-si <gyongsi@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 09:59:07 by gyong-si          #+#    #+#             */
-/*   Updated: 2023/09/28 12:37:15 by gyong-si         ###   ########.fr       */
+/*   Updated: 2023/09/28 16:05:57 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ int ft_intohex(unsigned int s, char *base)
 	len = 0;
 	i = 15;
 	c = (unsigned int)s;
+	if (c == 0)
+	{
+		ft_putchar_fd('0', 1);
+		return (1);
+	}
 	while (c > 0)
 	{
 		hex[i] = base[c % 16];

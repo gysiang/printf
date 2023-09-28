@@ -6,7 +6,7 @@
 /*   By: gyong-si <gyongsi@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 14:11:08 by gyong-si          #+#    #+#             */
-/*   Updated: 2023/09/28 12:37:56 by gyong-si         ###   ########.fr       */
+/*   Updated: 2023/09/28 15:59:34 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@ static int	ft_format(va_list args, char format)
 		len += ft_int_putstr_fd(va_arg(args, char *), 1);
 	else if (format == 'p')
 		len += ft_voidtohex(va_arg(args, void *));
-	else if (format == 'd' || format == 'i')
+	else if (format == 'd' || format == 'i' || format == 'u')
 		len += ft_int_putnbr_fd(va_arg(args, int), 1);
-	else if (format == 'u')
-		len += ft_putnbr_unsigned((unsigned int)va_arg(args, int));
 	else if (format == 'x')
 		len += ft_intohex((unsigned int)va_arg(args, int), "0123456789abcdef");
 	else if (format == 'X')
@@ -63,7 +61,7 @@ int	ft_printf(const char *s, ...)
 		i++;
 	}
 	va_end(args);
-	return (i);
+	return (printed_len);
 }
 /*
 int	main(void)
