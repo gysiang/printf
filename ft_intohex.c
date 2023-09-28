@@ -6,18 +6,18 @@
 /*   By: gyong-si <gyongsi@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 09:59:07 by gyong-si          #+#    #+#             */
-/*   Updated: 2023/09/28 16:05:57 by gyong-si         ###   ########.fr       */
+/*   Updated: 2023/09/28 20:18:46 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int ft_intohex(unsigned int s, char *base)
+int	ft_intohex(unsigned int s, char *base)
 {
-	unsigned int c;
-	int i;
-	int len;
-	char hex[16];
+	unsigned int	c;
+	int				i;
+	int				len;
+	char			hex[16];
 
 	len = 0;
 	i = 15;

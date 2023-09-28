@@ -6,18 +6,18 @@
 /*   By: gyong-si <gyongsi@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 09:58:41 by gyong-si          #+#    #+#             */
-/*   Updated: 2023/09/28 14:49:44 by gyong-si         ###   ########.fr       */
+/*   Updated: 2023/09/28 20:14:20 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int ft_voidtohex(void *p)
+int	ft_voidtohex(void *p)
 {
-	unsigned long long addr;
-	int i;
-	int len;
-	char hex[16];
+	unsigned long long	addr;
+	int					i;
+	int					len;
+	char				hex[16];
 
 	len = 0;
 	i = 15;

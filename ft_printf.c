@@ -6,7 +6,7 @@
 /*   By: gyong-si <gyongsi@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 14:11:08 by gyong-si          #+#    #+#             */
-/*   Updated: 2023/09/28 15:59:34 by gyong-si         ###   ########.fr       */
+/*   Updated: 2023/09/28 20:20:59 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static int	ft_format(va_list args, char format)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (format == 'c')
@@ -39,8 +39,8 @@ static int	ft_format(va_list args, char format)
 
 int	ft_printf(const char *s, ...)
 {
-	int	i;
-	int	printed_len;
+	int		i;
+	int		printed_len;
 	va_list	args;
 
 	i = 0;
