@@ -6,11 +6,11 @@
 /*   By: gyong-si <gyongsi@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 14:11:08 by gyong-si          #+#    #+#             */
-/*   Updated: 2023/09/28 00:26:10 by gyong-si         ###   ########.fr       */
+/*   Updated: 2023/09/28 12:37:56 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 #include <stdio.h>
 
 static int	ft_format(va_list args, char format)
@@ -65,7 +65,7 @@ int	ft_printf(const char *s, ...)
 	va_end(args);
 	return (i);
 }
-
+/*
 int	main(void)
 {
 	int	singlechar;
@@ -94,4 +94,4 @@ int	main(void)
 	ft_printf("Prints out percentage sign : %%\n");
 	printf("Prints out percentage sign : %%\n");
 	return (0);
-}
+} **/
