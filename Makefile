@@ -11,6 +11,7 @@ SRC_FILES   = ft_printf.c			\
 ft_int_putchar_fd.c   				\
 ft_int_putstr_fd.c                  \
 ft_int_putnbr_fd.c                  \
+ft_putnbr_unsigned.c				\
 ft_intohex.c                        \
 ft_numlen.c                         \
 ft_voidtohex.c                      \

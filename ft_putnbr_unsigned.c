@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_int_putnbr_fd.c                                 :+:      :+:    :+:   */
+/*   ft_putnbr_unsigned.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gyong-si <gyongsi@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/28 09:56:29 by gyong-si          #+#    #+#             */
-/*   Updated: 2023/09/29 12:11:29 by gyong-si         ###   ########.fr       */
+/*   Created: 2023/09/28 22:24:52 by gyong-si          #+#    #+#             */
+/*   Updated: 2023/09/28 22:25:11 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_int_putnbr_fd(int n)
+static void	printout(unsigned int nb)
 {
-	int	len;
-	char	*num;
+	if (nb > 9)
+		ft_putnbr_unsigned(nb / 10);
+	if (nb <= 9)
+	{
+		ft_putchar_fd(nb + 48, 1);
+		return;
+	}
+	ft_putchar_fd((nb % 10) + 48, 1);
+}
 
-	len = 0;
-	num = ft_itoa(n);
-	len += ft_int_putstr_fd(num, 1);
-	free(num);
-	return (len);
+int	ft_putnbr_unsigned(unsigned int n)
+{
+	unsigned int i;
+
+	printout(n);
+	i = 1;
+	while (n > 9)
+	{
+		n = n / 10;
+		i++;
+	}
+	return (i);
 }

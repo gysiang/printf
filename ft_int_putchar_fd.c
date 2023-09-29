@@ -6,11 +6,11 @@
 /*   By: gyong-si <gyongsi@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 09:55:03 by gyong-si          #+#    #+#             */
-/*   Updated: 2023/09/28 20:15:59 by gyong-si         ###   ########.fr       */
+/*   Updated: 2023/09/29 12:11:30 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "printf.h"
 
 int	ft_int_putchar_fd(char c, int fd)
 {
