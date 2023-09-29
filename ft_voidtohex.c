@@ -20,7 +20,7 @@ int	ft_voidtohex(void *p)
 	char				hex[16];
 
 	len = 0;
-	i = 15;
+	i = 0;
 	addr = (unsigned long long)p;
 	if (!addr)
 	{
@@ -28,12 +28,16 @@ int	ft_voidtohex(void *p)
 	}
 	while (addr > 0)
 	{
-		i--;
 		hex[i] = "0123456789abcdef"[addr % 16];
 		addr /= 16;
 		len++;
+		i++;
 	}
 	ft_putstr_fd("0x", 1);
-	ft_putstr_fd(&hex[i], 1);
+	while (i > 0)
+	{
+		i--;
+		ft_putchar_fd(hex[i], 1);
+	}
 	return (len + 2);
 }

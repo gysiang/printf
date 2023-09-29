@@ -6,12 +6,12 @@
 /*   By: gyong-si <gyongsi@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 22:24:52 by gyong-si          #+#    #+#             */
-/*   Updated: 2023/09/29 14:34:35 by gyong-si         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:51:14 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
+/*
 static void	printout(unsigned int nb)
 {
 	if (nb > 9)
@@ -19,21 +19,27 @@ static void	printout(unsigned int nb)
 	if (nb <= 9)
 	{
 		ft_putchar_fd(nb + 48, 1);
-		return;
+		return ;
 	}
 	ft_putchar_fd((nb % 10) + 48, 1);
 }
-
+*/
 int	ft_putnbr_unsigned(unsigned int n)
 {
-	unsigned int i;
+	int	len;
 
-	printout(n);
-	i = 1;
-	while (n > 9)
+	len = ft_numlen(n);
+	if (n == 0)
 	{
-		n = n / 10;
-		i++;
+		ft_putchar_fd('0', 1);
+		return (1);
 	}
-	return (i);
+	if (n / 10)
+	{
+		ft_putnbr_unsigned(n / 10);
+		ft_putnbr_unsigned(n % 10);
+	}
+	else
+		ft_putchar_fd(n + 48, 1);
+	return (len);
 }

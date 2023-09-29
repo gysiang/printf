@@ -39,7 +39,7 @@ clean:
 	make -C ./libft clean
 
 fclean:     clean 
-	rm -f $(PRINTF_NAMENAME)
+	rm -f $(PRINTF_NAME)
 	make -C $(LIBFT_DIR) fclean
 
 re:	fclean all
