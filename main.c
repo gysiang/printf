@@ -18,10 +18,12 @@ int	main(void)
 	int	negative_int;
 	int	x;
 	int	y;
+	char	z;
 	unsigned int	unsigned_int;
 	
 	x = 42;
 	y = -42;
+	z = 'g';
 	negative_int = -42;
 	unsigned_int = 4294967295;
 	printf("Test 1 -a: %d\n", 42);
@@ -46,5 +48,7 @@ int	main(void)
 	ft_printf("Test 10 -b: %p\n", &x);
 	printf("Test 11 -a: %p\n", &y);
 	ft_printf("Test 11 -b: %p\n", &y);
+	printf("Test 12 -a: %p\n", &z);
+	ft_printf("Test 12 -b: %p\n", &z);
 	return (0);
 }
