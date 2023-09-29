@@ -6,11 +6,11 @@
 /*   By: gyong-si <gyongsi@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 09:59:07 by gyong-si          #+#    #+#             */
-/*   Updated: 2023/09/29 12:09:40 by gyong-si         ###   ########.fr       */
+/*   Updated: 2023/09/29 14:32:23 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_intohex(unsigned int s, char *base)
 {

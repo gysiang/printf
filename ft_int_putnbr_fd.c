@@ -6,11 +6,11 @@
 /*   By: gyong-si <gyongsi@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 09:56:29 by gyong-si          #+#    #+#             */
-/*   Updated: 2023/09/29 12:11:29 by gyong-si         ###   ########.fr       */
+/*   Updated: 2023/09/29 14:32:44 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_int_putnbr_fd(int n)
 {

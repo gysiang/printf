@@ -6,12 +6,11 @@
 /*   By: gyong-si <gyongsi@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 14:11:08 by gyong-si          #+#    #+#             */
-/*   Updated: 2023/09/29 12:14:21 by gyong-si         ###   ########.fr       */
+/*   Updated: 2023/09/29 14:32:02 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
-#include <stdio.h>
+#include "ft_printf.h"
 
 static int	ft_format(va_list args, char format)
 {
@@ -66,33 +65,3 @@ int	ft_printf(const char *s, ...)
 	va_end(args);
 	return (printed_len);
 }
-
-int	main(void)
-{
-	int	singlechar;
-	int	num;
-	char *string;
-	unsigned int num1;
-
-	singlechar = 'h';
-	string = "ivan";
-	num = 42;
-	num1 = 4212345;
-	// ft_printf("This is a single char %c\n", singlechar);
-	// printf("This is a single char %c\n",singlechar);
-	// ft_printf("My name is %s. My char is %c\n", string, singlechar);
-	// printf("My name is %s. Mr char is %c\n", string, singlechar);
-	// ft_printf("Address of num: %p\n", (void *)&num);
-	// printf("Address of num: %p\n", (void *)&num);
-	// ft_printf("Decimal Base 10 number: %d\n", num);
-	// printf("Decimal Base 10 number: %d\n", num);
-	// ft_printf("Unsigned Int Decimal Base 10 number: %u\n", num1);
-	// printf("Unsigned Int Decimal Base 10 number: %u\n", num1);
-	// ft_printf("Print unsigned int number in lowercase hex format: %x\n", num1);
-	// printf("Print unsigned int number in lowercase hex format: %x\n", num1);
-	// ft_printf("Print unsigned int number in uppercase hex format: %X\n", num1);
-	// printf("Print unsigned int number in uppercase hex format: %X\n", num1);
-	// ft_printf("Prints out percentage sign : %%\n");
-	// printf("Prints out percentage sign : %%\n");
-	printf("%%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %c%%", 'A', "42", 42, 42 ,42 , 42, 42, 'B', "-42", -42, -42 ,-42 ,-42, 42, 'C', "0", 0, 0 ,0 ,0, 42, 0);
-} 
