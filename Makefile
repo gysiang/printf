@@ -21,15 +21,15 @@ OBJ_FILES   = $(SRC_FILES:.c=.o)
 
 # Library name
 LIBFT_NAME  = libft.a
-PRINTF_NAME = libftprintf.a
+NAME = libftprintf.a
 
 # Targets
-all:        $(PRINTF_NAME)
+all:        $(NAME)
             
-$(PRINTF_NAME): $(OBJ_FILES) 
+$(NAME): $(OBJ_FILES) 
 	@make -C $(LIBFT_DIR)
-	@cp $(LIBFT_DIR)/$(LIBFT_NAME) $(PRINTF_NAME)
-	ar rcs $(PRINTF_NAME) $(OBJ_FILES)
+	@cp $(LIBFT_DIR)/$(LIBFT_NAME) $(NAME)
+	ar rcs $(NAME) $(OBJ_FILES)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -39,7 +39,7 @@ clean:
 	make -C ./libft clean
 
 fclean:     clean 
-	rm -f $(PRINTF_NAME)
+	rm -f $(NAME)
 	make -C $(LIBFT_DIR) fclean
 
 re:	fclean all
