@@ -5,3 +5,6 @@
 *.swp
 
 /.vscode
+
+# Ignore .o files
+*.o

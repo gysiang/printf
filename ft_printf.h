@@ -22,7 +22,7 @@ int	ft_int_putchar_fd(char c, int fd);
 int	ft_int_putstr_fd(char *s, int fd);
 int	ft_int_putnbr_fd(int n);
 int	ft_putnbr_unsigned(unsigned int n);
-int	ft_numlen(int num);
+int	ft_numlen(long num);
 int	ft_voidtohex(void *p);
 int	ft_intohex(unsigned int s, char *base);
 

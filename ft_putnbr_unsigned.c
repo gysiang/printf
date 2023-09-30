@@ -14,7 +14,7 @@
 
 int	ft_putnbr_unsigned(unsigned int n)
 {
-	int	len;
+	long	len;
 
 	len = ft_numlen(n);
 	if (n == 0)

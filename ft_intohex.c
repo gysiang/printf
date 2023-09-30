@@ -16,7 +16,7 @@ int	ft_intohex(unsigned int s, char *base)
 {
 	unsigned int	c;
 	int				i;
-	int				len;
+	long				len;
 	char			hex[16];
 
 	len = 0;
@@ -34,6 +34,10 @@ int	ft_intohex(unsigned int s, char *base)
 		i--;
 		len++;
 	}
-	ft_putstr_fd(&hex[i + 1], 1);
+	while (i < 15)
+	{
+		i++;
+		ft_putchar_fd(hex[i], 1);
+	}
 	return (len);
 }
