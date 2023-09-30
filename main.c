@@ -10,51 +10,89 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include <stdio.h>
-
-int	main(void)
-{
-	int	negative_int;
-	int	x;
-	int	y;
-	char	z;
-	unsigned int	unsigned_int;
-	char *s;
-	
-	x = 42;
-	y = -42;
-	z = 'g';
-	s = NULL;
-	negative_int = -42;
-	unsigned_int = 4294967295;
-	printf("Test 1 -a: %d\n", 42);
-	ft_printf("Test 1 -b: %d\n", 42);
-	printf("Test 2 -a: %s\n", "Hello World");
-	ft_printf("Test 2 -b: %s\n", "Hello World");
-	printf("Test 3 -a: %c\n", 'A');
-	ft_printf("Test 3 -b: %c\n", 'A');
-	printf("Test 4 -a: %%\n");
-	ft_printf("Test 4 -b: %%\n");
-	printf("Test 5 -a: %u\n", 12345);
-	ft_printf("Test 5 -b: %u\n", 12345);
-	printf("Test 6 -a: %x\n", 255);
-	ft_printf("Test 6 -b: %x\n", 255);
-	printf("Test 7 -a: %X\n", 255);
-	ft_printf("Test 7 -b: %X\n", 255);
-	printf("Test 8 -a: %d\n", negative_int);
-	ft_printf("Test 8 -b: %d\n", negative_int);
-	printf("Test 9 -a: %u\n", unsigned_int);
-	ft_printf("Test 9 -b: %u\n", unsigned_int);
-	printf("Test 10 -a: %p\n", &x);
-	ft_printf("Test 10 -b: %p\n", &x);
-	printf("Test 11 -a: %p\n", &y);
-	ft_printf("Test 11 -b: %p\n", &y);
-	printf("Test 12 -a: %p\n", &z);
-	ft_printf("Test 12 -b: %p\n", &z);
-	printf("Test 13 -a: %s\n", s);
-	ft_printf("Test 13 -b: %s\n", s);
-	printf("Test 14 -a: %p\n", NULL);
-	ft_printf("Test 14 -b: %p\n", NULL);
-	return (0);
-}
+ #include <limits.h>
+ #include "ft_printf.h"
+ 
+ int    main(void)
+ {
+     char *str = "bonjour";
+     printf("test 1:\n");
+     printf("%c%sl%co, %s.\nI am %d years old.\n", 72, "e", 'l', "world", 31);
+     ft_printf("%c%sl%co, %s.\nI am %d years old.\n", 72, "e", 'l', "world", 31);
+     printf("test 2:\n");
+     printf("at the address %p, the string %s is stored\n", str, str);
+     ft_printf("at the address %p, the string %s is stored\n", str, str);
+     printf("test 3:\n");
+     printf("  ||  %i\n", printf(" NULL %s NULL", (char *)NULL));
+     printf("  ||  %i\n", ft_printf(" NULL %s NULL", (char *)NULL));
+       printf("test 4:\n");
+     printf("  ||  %i\n", ft_printf("%p", NULL));
+       printf("  ||  %i\n", printf("%p", NULL));
+     printf("test 5:\n");
+     printf("%p %p \n", (void *) (void *) 0 , (void *)0);
+     ft_printf("%p %p \n", (void *) (void *) 0 , (void *)0);
+     printf("test 6:\n");
+     printf("  ||  %i\n", ft_printf(" %x ", 0));
+     printf("  ||  %i\n", printf(" %x ", 0));
+     printf("test 7:\n");
+     ft_printf("  %%%%  \n");
+     printf("  %%%%  \n");
+     printf("test 8:\n");
+     printf("  ||  %i\n", ft_printf("\x01\x02\a\v\b\f\r"));
+     printf("  ||  %i\n", printf("\x01\x02\a\v\b\f\r"));
+     printf("test 9:\n");
+     printf("  ||  %i\n", ft_printf(""));
+     printf("  ||  %i\n", printf(""));
+     printf("test 10:\n");
+     printf("  ||  %i\n", ft_printf("%%c"));
+     printf("  ||  %i\n", printf("%%c"));
+     printf("test 11:\n");
+     printf("  ||  %i\n", ft_printf("%%%%%%"));
+     printf("  ||  %i\n", printf("%%%%%%"));
+     printf("test 12:\n");
+     printf("  ||  %i\n", ft_printf("%%%c", 'x'));
+     printf("  ||  %i\n", printf("%%%c", 'x'));
+     printf("test 13:\n");
+     printf("  ||  %i\n", ft_printf("%cc%cc%c", 'a', '\t', 'b'));
+     printf("  ||  %i\n", printf("%cc%cc%c", 'a', '\t', 'b'));
+     printf("test 14:\n");
+     printf("  ||  %i\n", ft_printf("%s", (char *)NULL));
+     printf("  ||  %i\n", printf("%s", (char *)NULL));
+     printf("test 15:\n");
+     printf("  ||  %i\n", ft_printf("%sx", "{} al$#@@@^&$$^#^@@^$*((&"));
+     printf("  ||  %i\n", printf("%sx", "{} al$#@@@^&$$^#^@@^$*((&"));
+     printf("test 16:\n");
+     printf("  ||  %i\n", ft_printf(" %s", "can it handle \t and \n?"));
+     printf("  ||  %i\n", printf(" %s", "can it handle \t and \n?"));
+     printf("test 17:\n");
+     printf("  ||  %i\n", ft_printf("%u", UINT_MAX));
+     printf("  ||  %i\n", printf("%u", UINT_MAX));
+     printf("test 18:\n");
+     printf("  ||  %i\n", ft_printf("%u", -6000023));
+     printf("  ||  %i\n", printf("%u", -6000023));
+     printf("test 19:\n");
+     printf("  ||  %i\n", ft_printf("%X", UINT_MAX));
+     printf("  ||  %i\n", printf("%X", UINT_MAX));
+     printf("test 20:\n");
+     printf("  ||  %i\n", ft_printf("%pp", (void *)LONG_MAX + 423856));
+     printf("  ||  %i\n", printf("%pp", (void *)LONG_MAX + 423856));
+     printf("test 21:\n");
+     printf("  ||  %i\n", ft_printf("%pp", (void *)INT_MAX));
+     printf("  ||  %i\n", printf("%pp", (void *)INT_MAX));
+     printf("test 22:\n");
+     printf("  ||  %i\n", ft_printf("%pp", (void *)0));
+     printf("  ||  %i\n", printf("%pp", (void *)0));
+     printf("test 23:\n");
+     printf("  ||  %i\n", ft_printf("0x%p-", (void *)ULONG_MAX));
+     printf("  ||  %i\n", printf("0x%p-", (void *)ULONG_MAX));
+     printf("test 24:\n");
+     printf("  ||  %i\n", ft_printf("%p", (void *)-14523));
+     printf("  ||  %i\n", printf("%p", (void *)-14523));
+     printf("test 25:\n");
+     printf("  ||  %i\n", ft_printf("%p", ""));
+     printf("  ||  %i\n", printf("%p", ""));
+     printf("test 26:\n");
+     printf("%c - %s - %p %d - %i - %u - %x %X %%\n", 'c', "", (void *)-1, 20, -20, -1, -1, 200000000);
+     ft_printf("%c - %s - %p %d - %i - %u - %x %X %%\n", 'c', "", (void *)-1, 20, -20, -1, -1, 200000000);
+ }
